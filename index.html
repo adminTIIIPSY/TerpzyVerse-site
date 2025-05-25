@@ -3,40 +3,186 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>TerpzyVerse Coming Soon</title>
+  <title>TerpzyVerse – Coming Soon</title>
   <style>
     body {
       margin: 0;
-      padding: 0;
-      background-color: #111;
+      font-family: 'Segoe UI', sans-serif;
+      background: radial-gradient(circle at top, #111 0%, #000 100%);
       color: #fff;
-      font-family: 'Arial', sans-serif;
+      overflow-x: hidden;
+    }
+
+    .stars {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: url('https://raw.githubusercontent.com/VincentGarreau/particles.js/master/demo/media/stars.png') repeat;
+      animation: moveStars 60s linear infinite;
+      z-index: 0;
+    }
+
+    @keyframes moveStars {
+      from {background-position: 0 0;}
+      to {background-position: -10000px 10000px;}
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 100vh;
-      background-image: radial-gradient(#2a2a2a, #000000);
+      min-height: 100vh;
       text-align: center;
+      padding: 20px;
     }
-    img {
-      width: 220px;
-      max-width: 80%;
-      margin-bottom: 20px;
-    }
+
     h1 {
-      font-size: 2.5em;
-      margin: 0;
+      font-size: 2.5rem;
+      text-shadow: 0 0 10px #f00;
+      margin-bottom: 10px;
     }
+
     p {
-      font-size: 1.2em;
+      font-size: 1.2rem;
+      margin-bottom: 20px;
       color: #ccc;
+    }
+
+    .tiiipsy {
+      width: 200px;
+      margin-bottom: 20px;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+
+    .countdown {
+      font-size: 1.5rem;
+      margin-bottom: 30px;
+      color: #0f0;
+      font-weight: bold;
+    }
+
+    .previews {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 30px;
+    }
+
+    .tile {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 16px;
+      border: 1px solid #444;
+      border-radius: 12px;
+      width: 140px;
+      text-align: center;
+      backdrop-filter: blur(4px);
+      box-shadow: 0 0 12px #00ffff33;
+      animation: fadeIn 2s ease-out forwards;
+      opacity: 0;
+    }
+
+    .tile:nth-child(1) { animation-delay: 0.5s; }
+    .tile:nth-child(2) { animation-delay: 1s; }
+    .tile:nth-child(3) { animation-delay: 1.5s; }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    .tile h3 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+
+    .tile span {
+      font-size: 0.9rem;
+      color: #888;
+    }
+
+    .contact {
+      margin-top: 20px;
+      font-size: 1rem;
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 0.8rem;
+      color: #555;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 2rem; }
+      .countdown { font-size: 1.2rem; }
+      .tile { width: 100%; max-width: 280px; }
     }
   </style>
 </head>
 <body>
-  <img src="tiiipsy.png" alt="Tiiipsy - Coming Soon" />
-  <h1>TerpzyVerse</h1>
-  <p>We’re growing something magical... check back soon.</p>
+  <div class="stars"></div>
+  <div class="container">
+    <img src="Tiiipsy.png" alt="Tiiipsy" class="tiiipsy" />
+    <h1>TerpzyVerse is Under Construction</h1>
+    <p>Powered by Tiiipsy — Stay lit. Stay tuned.</p>
+    <div class="countdown" id="countdown">Loading countdown...</div>
+
+    <div class="previews">
+      <div class="tile">
+        <h3>TerpzySocial</h3>
+        <span>Poker. Crash. Slots.</span>
+      </div>
+      <div class="tile">
+        <h3>Crash Game</h3>
+        <span>Ride the multiplier wave!</span>
+      </div>
+      <div class="tile">
+        <h3>Terpzalot</h3>
+        <span>Idle Cannabis Kingdom</span>
+      </div>
+    </div>
+
+    <div class="contact">
+      Questions? Contact us at: <br/>
+      <a href="mailto:terpzyverse@gmail.com" style="color:#0ff;">terpzyverse@gmail.com</a>
+    </div>
+
+    <footer>
+      &copy; 2025 TerpzyVerse | Built with love & fire
+    </footer>
+  </div>
+
+  <script>
+    const countdownEl = document.getElementById("countdown");
+    const launchDate = new Date();
+    launchDate.setDate(launchDate.getDate() + 14);
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = launchDate - now;
+
+      if (diff <= 0) {
+        countdownEl.textContent = "We’ve launched!";
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / 1000 / 60) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      countdownEl.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s until launch`;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
 </body>
 </html>
