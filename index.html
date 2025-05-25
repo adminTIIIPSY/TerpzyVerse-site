@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Terpzalot | TerpzyVerse</title>
+  <title>Tiiipsy Lobby</title>
   <style>
     body {
       margin: 0;
-      padding: 0;
-      background: linear-gradient(to bottom, #0e0e0e, #1a1a1a);
-      font-family: 'Arial', sans-serif;
-      color: #fff;
+      background: url('galaxy-bg.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Orbitron', sans-serif;
+      color: #00f5ff;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -18,73 +18,36 @@
       height: 100vh;
       text-align: center;
     }
+
     h1 {
-      font-size: 3em;
-      margin-bottom: 0.2em;
+      font-size: 48px;
+      text-shadow: 0 0 10px #00f5ff;
     }
-    p {
-      font-size: 1.2em;
-      color: #ccc;
-      margin-bottom: 1.5em;
+
+    .tiiipsy-lobby {
+      margin-top: 30px;
     }
-    #countdown {
-      font-size: 2em;
-      color: #42f57b;
-      margin-bottom: 2em;
+
+    .tiiipsy-lobby img {
+      width: 280px;
+      max-width: 90%;
+      height: auto;
+      filter: drop-shadow(0 0 12px #00f5ff);
     }
-    a.button {
-      background-color: #42f57b;
-      color: #000;
-      padding: 15px 30px;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1.2em;
-      border-radius: 10px;
-      box-shadow: 0 0 10px #42f57b;
-      transition: all 0.3s ease-in-out;
-    }
-    a.button:hover {
-      background-color: #2ecc71;
-      box-shadow: 0 0 20px #2ecc71;
-    }
-    img {
-      width: 240px;
-      margin-bottom: 30px;
-      border-radius: 20px;
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 32px;
+      }
     }
   </style>
 </head>
 <body>
-  <img src="tiiipsy.png" alt="Tiiipsy">
-  <h1>Terpzalot is Growing</h1>
-  <p>The idle cannabis farming game launches soon. Join the beta and grow your kingdom from seed to dispensary.</p>
-  <div id="countdown">Loading countdown...</div>
-  <a href="#" class="button" id="playBtn" style="display:none;">Play Now</a>
 
-  <script>
-    const targetDate = new Date("2025-06-13T21:20:00Z").getTime();
+  <h1>Welcome to the Lobby</h1>
+  <div class="tiiipsy-lobby">
+    <img src="tiiipsy.png" alt="Tiiipsy in the Lobby">
+  </div>
 
-    const countdown = document.getElementById("countdown");
-    const playBtn = document.getElementById("playBtn");
-
-    const interval = setInterval(() => {
-      const now = new Date().getTime();
-      const distance = targetDate - now;
-
-      if (distance <= 0) {
-        clearInterval(interval);
-        countdown.innerHTML = "The wait is over. Let’s grow.";
-        playBtn.style.display = "inline-block";
-        return;
-      }
-
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      countdown.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-    }, 1000);
-  </script>
 </body>
 </html>
