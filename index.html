@@ -5,56 +5,87 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>TerpzyVerse</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
     body {
-      background: url("b58dacbd-82a1-423e-8686-31081e792384.png") no-repeat center center fixed;
-      background-size: cover;
+      margin: 0;
+      overflow: hidden;
       font-family: 'Segoe UI', sans-serif;
       color: #fff;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      background: #000;
     }
-    .button-container {
+
+    .background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: url('b58dacbd-82a1-423e-8686-31081e792384.png') no-repeat center center;
+      background-size: cover;
+      z-index: -1;
+      animation: stars 10s infinite ease-in-out;
+    }
+
+    @keyframes stars {
+      0%, 100% { filter: brightness(1); }
+      50% { filter: brightness(1.2); }
+    }
+
+    .glow {
+      animation: pulse 2.5s infinite ease-in-out;
+    }
+
+    @keyframes pulse {
+      0%, 100% { filter: drop-shadow(0 0 6px #0ff); }
+      50% { filter: drop-shadow(0 0 12px #0ff); }
+    }
+
+    .container {
       position: absolute;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
       top: 50%;
       left: 10%;
       transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 80vw;
     }
-    .button-container a {
-      text-decoration: none;
-      background: rgba(0,0,0,0.7);
+
+    .btn {
+      background: rgba(0, 0, 0, 0.7);
       padding: 12px 24px;
       color: #00f0ff;
       border-radius: 8px;
-      text-align: center;
       font-weight: bold;
-      transition: background 0.2s ease;
+      text-align: center;
+      text-decoration: none;
+      width: fit-content;
+      transition: background 0.2s;
     }
-    .button-container a:hover {
-      background: rgba(0,0,0,0.9);
+
+    .btn:hover {
+      background: rgba(0, 0, 0, 0.9);
     }
+
     @media (max-width: 768px) {
-      .button-container {
+      .container {
         left: 50%;
         transform: translate(-50%, -50%);
+        align-items: center;
+      }
+      .btn {
+        width: 90vw;
+        text-align: center;
       }
     }
   </style>
 </head>
 <body>
-  <div class="button-container">
-    <a href="terpzycoin.html">View TerpzyCoin Hub</a>
-    <a href="terpzysocial.html">Go to TerpzySocial</a>
-    <a href="https://your-terpzalot-apk-link.com">Download Terpzalot Beta</a>
+  <div class="background glow"></div>
+
+  <div class="container">
+    <a class="btn" href="terpzycoin.html">View TerpzyCoin Hub</a>
+    <a class="btn" href="terpzysocial.html">Go to TerpzySocial</a>
+    <a class="btn" href="https://your-terpzalot-apk-link.com">Download Terpzalot Beta</a>
   </div>
 </body>
 </html>
