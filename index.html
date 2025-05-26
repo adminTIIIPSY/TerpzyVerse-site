@@ -3,51 +3,58 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Tiiipsy Lobby</title>
+  <title>TerpzyVerse</title>
   <style>
-    body {
+    * {
       margin: 0;
-      background: url('background.jpg') no-repeat center center fixed;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: url("b58dacbd-82a1-423e-8686-31081e792384.png") no-repeat center center fixed;
       background-size: cover;
-      font-family: 'Orbitron', sans-serif;
-      color: #00f5ff;
+      font-family: 'Segoe UI', sans-serif;
+      color: #fff;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .button-container {
+      position: absolute;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
+      gap: 20px;
+      top: 50%;
+      left: 10%;
+      transform: translateY(-50%);
+    }
+    .button-container a {
+      text-decoration: none;
+      background: rgba(0,0,0,0.7);
+      padding: 12px 24px;
+      color: #00f0ff;
+      border-radius: 8px;
       text-align: center;
+      font-weight: bold;
+      transition: background 0.2s ease;
     }
-
-    h1 {
-      font-size: 48px;
-      text-shadow: 0 0 10px #00f5ff;
+    .button-container a:hover {
+      background: rgba(0,0,0,0.9);
     }
-
-    .tiiipsy-lobby {
-      margin-top: 30px;
-    }
-
-    .tiiipsy-lobby img {
-      width: 280px;
-      max-width: 90%;
-      height: auto;
-      filter: drop-shadow(0 0 12px #00f5ff);
-    }
-
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 32px;
+    @media (max-width: 768px) {
+      .button-container {
+        left: 50%;
+        transform: translate(-50%, -50%);
       }
     }
   </style>
 </head>
 <body>
-
-  <h1>Welcome to the Lobby</h1>
-  <div class="tiiipsy-lobby">
-    <img src="tiiipsy.png" alt="Tiiipsy in the Lobby">
+  <div class="button-container">
+    <a href="terpzycoin.html">View TerpzyCoin Hub</a>
+    <a href="terpzysocial.html">Go to TerpzySocial</a>
+    <a href="https://your-terpzalot-apk-link.com">Download Terpzalot Beta</a>
   </div>
-
 </body>
 </html>
