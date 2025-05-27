@@ -7,85 +7,88 @@
   <style>
     body {
       margin: 0;
-      overflow: hidden;
-      font-family: 'Segoe UI', sans-serif;
-      color: #fff;
-      background: #000;
-    }
-
-    .background {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: url('b58dacbd-82a1-423e-8686-31081e792384.png') no-repeat center center;
+      background: url('bg-galaxy.jpg') no-repeat center center fixed;
       background-size: cover;
-      z-index: -1;
-      animation: stars 10s infinite ease-in-out;
+      font-family: sans-serif;
+      color: #00f5ff;
+      text-align: center;
     }
-
-    @keyframes stars {
-      0%, 100% { filter: brightness(1); }
-      50% { filter: brightness(1.2); }
+    .title {
+      font-size: 48px;
+      margin-top: 40px;
+      text-shadow: 0 0 10px #00f5ff;
     }
-
-    .glow {
-      animation: pulse 2.5s infinite ease-in-out;
+    .grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 40px auto;
+      gap: 20px;
     }
-
-    @keyframes pulse {
-      0%, 100% { filter: drop-shadow(0 0 6px #0ff); }
-      50% { filter: drop-shadow(0 0 12px #0ff); }
-    }
-
-    .container {
-      position: absolute;
-      top: 50%;
-      left: 10%;
-      transform: translateY(-50%);
+    .coin {
       display: flex;
       flex-direction: column;
-      gap: 20px;
-      max-width: 80vw;
+      align-items: center;
     }
-
+    .coin img {
+      width: 150px;
+      height: auto;
+    }
     .btn {
-      background: rgba(0, 0, 0, 0.7);
-      padding: 12px 24px;
-      color: #00f0ff;
-      border-radius: 8px;
-      font-weight: bold;
-      text-align: center;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background: #00f5ff;
+      color: #000;
+      border: none;
+      border-radius: 10px;
       text-decoration: none;
-      width: fit-content;
-      transition: background 0.2s;
     }
-
-    .btn:hover {
-      background: rgba(0, 0, 0, 0.9);
+    .tiiipsy {
+      margin-top: 50px;
     }
-
-    @media (max-width: 768px) {
-      .container {
-        left: 50%;
-        transform: translate(-50%, -50%);
-        align-items: center;
-      }
-      .btn {
-        width: 90vw;
-        text-align: center;
-      }
+    .tiiipsy img {
+      width: 240px;
+    }
+    .nav {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+    .nav a {
+      color: #00f5ff;
+      text-decoration: none;
+      margin-left: 20px;
     }
   </style>
 </head>
 <body>
-  <div class="background glow"></div>
+  <div class="nav">
+    <a href="login.html">Login</a>
+    <a href="register.html">Register</a>
+  </div>
+  <div class="title">TerpzyVerse</div>
 
-  <div class="container">
-    <a class="btn" href="terpzycoin.html">View TerpzyCoin Hub</a>
-    <a class="btn" href="terpzysocial.html">Go to TerpzySocial</a>
-    <a class="btn" href="https://your-terpzalot-apk-link.com">Download Terpzalot Beta</a>
+  <div class="grid">
+    <div class="coin">
+      <img src="TV-coin-CC.png" alt="TerpzyCoin">
+      <a class="btn" href="coming-soon.html">Coin Hub</a>
+    </div>
+    <div class="coin">
+      <img src="TV-coin-TC-top.png" alt="TerpzyComic">
+      <a class="btn" href="coming-soon.html">Comic Portal</a>
+    </div>
+    <div class="coin">
+      <img src="TV-coin-SC.png" alt="TerpzySocial">
+      <a class="btn" href="lobby.html">Poker + Slots</a>
+    </div>
+    <div class="coin">
+      <img src="TV-coin-OG.png" alt="OriginalGame">
+      <a class="btn" href="coming-soon.html">Crash + NovaNet</a>
+    </div>
+  </div>
+
+  <div class="tiiipsy">
+    <img src="tiiipsy-red.png" alt="Tiiipsy">
   </div>
 </body>
 </html>
