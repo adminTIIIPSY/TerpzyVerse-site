@@ -1,0 +1,71 @@
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+  background: url('bg-galaxy.png') no-repeat center center fixed;
+  background-size: cover;
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+  padding: 40px;
+}
+.left-panel {
+  max-width: 50%;
+}
+.left-panel h1 {
+  font-size: 2.5em;
+  margin-bottom: 0.5em;
+}
+.left-panel p {
+  font-size: 1.2em;
+  line-height: 1.5em;
+}
+.features {
+  list-style: none;
+  padding-left: 0;
+}
+.features li {
+  margin: 0.5em 0;
+}
+.tagline {
+  margin-top: 1em;
+  font-style: italic;
+}
+.buttons {
+  margin-top: 2em;
+}
+.btn {
+  display: inline-block;
+  background-color: #ff3366;
+  color: white;
+  padding: 10px 20px;
+  margin-right: 10px;
+  text-decoration: none;
+  font-size: 1em;
+  border-radius: 5px;
+}
+.right-panel .tiiipsy {
+  max-height: 80vh;
+}
+footer {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+  font-size: 0.9em;
+  color: #ccc;
+}
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .right-panel, .left-panel {
+    max-width: 100%;
+  }
+}
