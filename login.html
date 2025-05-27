@@ -1,41 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>TerpzyVerse Login</title>
-  <style>
-    body { font-family: Arial, sans-serif; background: #000; color: #00f5ff; text-align: center; padding-top: 100px; }
-    input, button { padding: 10px; margin: 10px; border-radius: 5px; border: none; }
-    .box { background: #111; padding: 30px; display: inline-block; border-radius: 10px; box-shadow: 0 0 10px #00f5ff; }
-  </style>
+  <title>Login</title>
+  <script type="module">
+    // Firebase import
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+    import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyC7r0aI3rniTDjmMOzb0fOajm8d50qG1Y8",
+      authDomain: "sitesage-afd97.firebaseapp.com",
+      projectId: "sitesage-afd97",
+      storageBucket: "sitesage-afd97.firebasestorage.app",
+      messagingSenderId: "195015499162",
+      appId: "1:195015499162:web:e73b4af5e66d6807f0ae23"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    window.loginUser = () => {
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          // Redirect on success
+          window.location.href = "lobby.html";
+        })
+        .catch((error) => {
+          alert("Login failed: " + error.message);
+        });
+    };
+  </script>
 </head>
 <body>
-  <div class="box">
-    <h2>Login to TerpzyVerse</h2>
-    <form onsubmit="return login(event)">
-      <input type="text" id="username" placeholder="Username" required><br>
-      <input type="password" id="password" placeholder="Password" required><br>
-      <button type="submit">Login</button>
-    </form>
-    <p>Don't have an account? <a href="register.html" style="color:#0ff;">Register</a></p>
-    <p id="message"></p>
-  </div>
-  <script>
-    const users = {
-      "adminTIIIPSY": "Newlife@2025"
-    };
-    function login(event) {
-      event.preventDefault();
-      const u = document.getElementById('username').value;
-      const p = document.getElementById('password').value;
-      if (users[u] === p || localStorage.getItem("user_" + u) === p) {
-        sessionStorage.setItem("user", u);
-        sessionStorage.setItem("isAdmin", u === "adminTIIIPSY");
-        window.location.href = "lobby.html";
-      } else {
-        document.getElementById('message').textContent = "Invalid login.";
-      }
-    }
-  </script>
+  <h2>Log In to TerpzyVerse</h2>
+  <input type="email" id="email" placeholder="Email" /><br><br>
+  <input type="password" id="password" placeholder="Password" /><br><br>
+  <button onclick="loginUser()">Log In</button>
 </body>
 </html>
