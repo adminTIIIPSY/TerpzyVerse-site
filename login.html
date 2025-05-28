@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - TerpzyVerse</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="form-container">
+    <h2>Login to TerpzyVerse</h2>
+    <form id="loginForm">
+      <input type="email" id="email" placeholder="Email" required />
+      <input type="password" id="password" placeholder="Password" required />
+      <label><input type="checkbox" id="remember"> Remember Me</label>
+      <button type="submit">Login</button>
+      <p><a href="#" onclick="resetPassword()">Forgot Password?</a></p>
+      <p>or</p>
+      <button type="button" onclick="githubLogin()">Login with GitHub</button>
+    </form>
+    <p>Don't have an account? <a href="register.html">Register</a></p>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
