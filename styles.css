@@ -3,7 +3,7 @@ body {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: white;
-  background: url('bg-galaxy.png') no-repeat center center fixed;
+  background: url('bg-galaxy.jpg') no-repeat center center fixed;
   background-size: cover;
 }
 .container {
