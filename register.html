@@ -3,108 +3,65 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Register | TerpzyVerse</title>
+  <title>Register - TerpzyVerse</title>
   <style>
-    body, html {
+    body {
       margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: url('register-bg.png') no-repeat center center fixed;
+      background: url('assets/galaxy-bg.jpg') no-repeat center center fixed;
       background-size: cover;
-      height: 100vh;
-      color: white;
+      font-family: sans-serif;
+      color: #fff;
       display: flex;
-      align-items: center;
       justify-content: center;
+      align-items: center;
+      height: 100vh;
     }
-
-    .container {
-      display: flex;
-      background: rgba(0, 0, 0, 0.75);
+    .form-box {
+      background-color: rgba(0, 0, 0, 0.75);
+      padding: 30px;
       border-radius: 16px;
-      padding: 40px;
-      width: 90%;
-      max-width: 1000px;
-      box-shadow: 0 0 25px #00f5ff;
-      gap: 40px;
-      flex-wrap: wrap;
+      box-shadow: 0 0 20px #00f5ff;
+      width: 300px;
     }
-
-    .info {
-      flex: 1 1 300px;
-    }
-
-    .info h1 {
-      font-size: 28px;
-      margin-bottom: 20px;
-      color: #00f5ff;
-    }
-
-    .info p {
-      margin: 12px 0;
-      line-height: 1.5;
-    }
-
-    .form-area {
-      flex: 1 1 300px;
-    }
-
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-
     input {
+      width: 100%;
       padding: 12px;
-      border-radius: 6px;
+      margin: 10px 0;
       border: none;
-      font-size: 16px;
-      outline: none;
+      border-radius: 8px;
     }
-
     button {
+      width: 100%;
       padding: 12px;
       background-color: #00f5ff;
       border: none;
-      border-radius: 6px;
+      border-radius: 8px;
       font-weight: bold;
-      color: #000;
       cursor: pointer;
-      transition: background 0.3s ease;
     }
-
-    button:hover {
-      background-color: #00cce6;
+    .link {
+      margin-top: 10px;
+      text-align: center;
     }
-
-    @media (max-width: 768px) {
-      .container {
-        flex-direction: column;
-        align-items: center;
-      }
+    .link a {
+      color: #00f5ff;
+      text-decoration: none;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="info">
-      <h1>Welcome to TerpzyVerse</h1>
-      <p>🌌 <strong>Poker</strong>: Multiplayer Hold’em & Omaha with real-time betting.</p>
-      <p>🎰 <strong>Slots</strong>: 9x9 cascading reels with Time Warp bonuses.</p>
-      <p>🌱 <strong>Terpzalot</strong>: Grow magical farms in a medieval stoner world.</p>
-      <p>🚀 <strong>Original Games</strong>: Crash rockets and explore NovaNet puzzles.</p>
-    </div>
-
-    <div class="form-area">
-      <h2>Create Your Account</h2>
-      <form action="/submit-register" method="post">
-        <input type="text" name="username" placeholder="Username" required />
-        <input type="email" name="email" placeholder="Email" required />
-        <input type="password" name="password" placeholder="Password" required />
-        <button type="submit">SIGN UP</button>
-      </form>
+  <div class="form-box">
+    <h2>Create Your Account</h2>
+    <form id="registerForm">
+      <input type="email" id="registerEmail" placeholder="Email" required />
+      <input type="password" id="registerPassword" placeholder="Password" required />
+      <button type="submit">Sign Up</button>
+    </form>
+    <div class="link">
+      Already have an account? <a href="login.html">Log in</a>
     </div>
   </div>
+
+  <script type="module" src="scripts/auth.js"></script>
 </body>
 </html>
